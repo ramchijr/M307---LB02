@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="../Startseite/css/style.css" charset="uft-8">
+    <script src="js/validate.js" charset="utf-8"></script>
 </head>
 <body>
 <header>
@@ -29,6 +30,20 @@
         </ul>
     </nav>
 </header>
+
+<div class="form-box">
+    <div class="formular">
+        <form name="formular" onsubmit="return showMsg()" method="post">
+            <input name="vorname" placeholder="Vorname" type="text">
+            <input placeholder="Nachname" type="text">
+            <input placeholder="Geburtsdatum" type="date">
+            Männlich <input placeholder="Geschlecht" type="radio">
+            Weiblich <input placeholder="Geschlecht" type="radio">
+            <input placeholder="E-Mail-Adresse" type="email">
+            <input type="submit">
+        </form>
+    </div>
+</div>
 
 </body>
 </html>
