@@ -5,52 +5,59 @@
     <title>Formular</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css" charset="uft-8">
-    <script src="js/validate.js" charset="utf-8"></script>
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"-->
+<!--          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">-->
+<!--    <link rel="stylesheet" href="css/style.css">-->
+    <link rel="stylesheet" href="css/forms.css">
 </head>
 <body>
 <header>
-    <div id="brand">
-        <img src="../Startseite/bilder/mathe.png" alt="icon"/>
-        <h1>
-            Noten ausrechnen
-            <small>leicht gemacht</small>
-        </h1>
-    </div>
-    <nav>
-        <ul>
-            <li>
-                <a href="../Informationsdaten/daten.html" target="_self">Informationsdaten</a>
-            </li>
-            <li>
-                <a href="../Startseite/index.html" target="_self">Startseite</a>
-            </li>
-        </ul>
-    </nav>
 </header>
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
-        <div class="container">
+        <div class="container-formular">
             <h1 class="titel">Formular</h1>
             <p class="lead"></p>
         </div>
     </div>
+    <div class="container">
+        <form id="form" class="form">
+            <h2>Registriere dich</h2>
+            <div class="form-control">
+                <label for="vorname">Vorname</label>
+                <input type="text" id="vorname" placeholder="zB. Alexander" />
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="vorname">Nachname</label>
+                <input type="text" id="nachname" placeholder="zB. Müller" />
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="geburtsdatum">Geburtsdatum</label>
+                <input type="date" id="geburtsdatum" min="1922-01-01" max="2010-06-21" required />
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="telefonnummer">Telefonnummer</label>
+                <input type="tel" id="telefonnummer" placeholder="zB. 079 134 89 98" />
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="zB. admin@schweiz.ch" />
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="passwort">Passwort</label>
+                <input type="password" id="passwort" placeholder="zB. aSwqc291" />
+                <small>Error message</small>
+            </div>
 
-    <div class="form-box">
-        <div class="formular">
-            <form class="ebenen" name="formular" onsubmit="return showMsg()" method="post" required>
-                <input name="vorname" placeholder="Vorname" type="text" required>
-                <input placeholder="Nachname" type="text" required>
-                <input placeholder="Geburtsdatum" type="date" min="1900-01-01" max="2020-06-21" required>
-                Männlich <input placeholder="Geschlecht" type="radio" required name="radio">
-                Weiblich <input placeholder="Geschlecht" type="radio" required name="radio">
-                <input placeholder="E-Mail-Adresse" type="email" required>
-                <input class="absenden" type="submit">
-            </form>
-        </div>
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </div>
+<script src="js/validate-input.js" charset="utf-8"></script>
 </body>
 </html>
