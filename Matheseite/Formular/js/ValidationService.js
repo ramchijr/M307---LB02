@@ -41,11 +41,11 @@ function validateUser(userObj) {
     if (result.isNotValid) { return result; }
 
     //check Date
-    result = validateLib.checkDate("geburtsdatum",userObj.geburtsdatum, 3, 15);
+    result = validateLib.checkDate("geburtsdatum",userObj.geburtsdatum);
     if (result.isNotValid) { return result; }
 
     //check Phone
-    result = validateLib.checkPhone("telefonnummer",userObj.telefonnummer, 3, 15);
+    result = validateLib.checkPhone("telefonnummer",userObj.telefonnummer);
     if (result.isNotValid) { return result; }
 
     //check email

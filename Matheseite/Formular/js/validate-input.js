@@ -115,11 +115,7 @@ function checkDate(input) {
 }
 
 
-/* Aufgabe:
-    Validieren Sie, ob die beiden Passwörter übereinstimmen.
-    Falls sie nicht übereinstimmen, geben Sie (ähnlich wie in den anderen Beispielen)
-    eine Fehlermeldung dem Formular aus.
-*/
+
 // Check passwords match
 
 // Get fieldname
