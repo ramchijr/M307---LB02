@@ -29,13 +29,13 @@
                 <small>Error message</small>
             </div>
             <div class="form-control">
-                <label for="vorname">Nachname</label>
+                <label for="nachname">Nachname</label>
                 <input type="text" id="nachname" placeholder="zB. Müller" />
                 <small>Error message</small>
             </div>
             <div class="form-control">
                 <label for="geburtsdatum">Geburtsdatum</label>
-                <input type="date" id="geburtsdatum" min="1922-01-01" max="2010-06-21" required />
+                <input type="text" id="geburtsdatum" min="1922-01-01" max="2010-06-21" required />
                 <small>Error message</small>
             </div>
             <div class="form-control">
@@ -54,7 +54,7 @@
                 <small>Error message</small>
             </div>
 
-            <button type="submit">Submit</button>
+            <button type="submit" onclick="validateInputs()">Submit</button>
         </form>
     </div>
 </div>

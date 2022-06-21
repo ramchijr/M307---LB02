@@ -9,6 +9,7 @@ const nachname = document.getElementById('nachname');
 const vorname = document.getElementById('vorname');
 const geburtsdatum = document.getElementById('geburtsdatum' );
 const telefonnummer = document.getElementById('telefonnummer' );
+const passwort = document.getElementById('passwort');
 
 // Show input error message
 function showError(input, message) {
@@ -24,22 +25,6 @@ function showSuccess(input) {
     formControl.className = 'form-control success';
 }
 
-// Check email is valid
-function checkEmail(input) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (re.test(input.value.trim())) {
-        showSuccess(input);
-    } else {
-        showError(input, 'Email is not valid');
-    }
-}
-
-/* Aufgabe:
-    Validieren Sie die Mobile-Nummer ähnlich wie bei der Email mit einer
-    Regular expression (regex). Für eine geeignete regex suchen Sie
-    im Internet nach "javascript regular expression for mobile number".
-*/
-// Check phone is valid
 
 // Check required fields
 function checkRequired(inputArr) {
@@ -55,6 +40,53 @@ function checkRequired(inputArr) {
 
     return isRequired;
 }
+
+// Check first name
+function checkFirstname(input, min, max) {
+    const regex = /^[a-z ,.'-]+$/i;
+    if (regex.test(input.value.trim()) && checkLength(input, min, max)) {
+        showSuccess(input);
+    } else {
+        showError(
+            input,
+            'Firstname must contain 3 to 15 letters'
+        );
+    }
+}
+
+// Check last name
+function checkLastname(input, min, max) {
+    const regex = /^[A-Za-z]+$/;
+    if (regex.test(input.value.trim()) && checkLength(input, min, max)) {
+        showSuccess(input);
+    } else {
+        showError(
+            input,
+            'Lastname must contain 3 to 15 letters'
+        );
+    }
+}
+
+// Check email is valid
+function checkEmail(input) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(input.value.trim())) {
+        showSuccess(input);
+    } else {
+        showError(input, 'Email is not valid');
+    }
+}
+
+// Check phone is valid
+function checkPhone(input) {
+    const regex = /^\d{10}$/;
+    if (regex.test(input.value.trim())) {
+        showSuccess(input);
+    } else {
+        showError(input, 'Number is not valid');
+    }
+}
+
 
 // Check input length
 function checkLength(input, min, max) {
@@ -73,6 +105,17 @@ function checkLength(input, min, max) {
     }
 }
 
+function checkDate(input) {
+    const regex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(0[1-9]|1[1-9]|2[1-9])$/;
+    if (regex.test(input.value.trim())) {
+        showSuccess(input);
+    } else {
+        showError(input, 'Us this format dd/mm/yy.');
+    }
+}
+
+
+
 /* Aufgabe:
     Validieren Sie, ob die beiden Passwörter übereinstimmen.
     Falls sie nicht übereinstimmen, geben Sie (ähnlich wie in den anderen Beispielen)
@@ -86,29 +129,25 @@ function getFieldName(input) {
 }
 
 function validateForm(){
-    if(!checkRequired([vorname, nachname, email, telefonnummer, passwort, geburtsdatum ])){
-        //Aufgabe: Validierung der Länge für Vorname (2 bis 20) und Nachname (2 bis 50)
-        checkLength(vorname, 3, 15);
-        checkLength(nachname, 3, 15);
         checkLength(passwort, 6, 25);
-        /* Aufgabe:
-          Validierung der Telefonnummer ähnlich wie bei der Email mit einer
-          Regular expression (regex). Für eine geeignete regex suchen Sie
-          im Internet nach "javascript regular expression for mobile number"
-        * */
+        checkFirstname(vorname, 3, 15);
+        checkLastname(nachname, 3, 15);
+        checkDate(geburtsdatum);
+        checkPhone(telefonnummer);
         checkEmail(email);
-        /* Aufgabe:
-          Validierung Sie die beiden Passwörter, damit password
-          mit password2 übereinstimmt.
-        * */
-    }
 }
+
+function validateInputs() {
+    if (!checkRequired([vorname, nachname, email, telefonnummer, passwort, geburtsdatum])) {
+        validateForm();
+    }
 
 
 // Event listeners
-form.addEventListener('submit', function(e) {
-    //https://www.w3schools.com/jsref/event_preventdefault.asp
-    e.preventDefault();
-    //First validate form
-    validateForm();
-});
+    form.addEventListener('submit', function (e) {
+        //https://www.w3schools.com/jsref/event_preventdefault.asp
+        e.preventDefault();
+        //First validate form
+        validateForm();
+    });
+}
