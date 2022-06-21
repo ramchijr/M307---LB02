@@ -104,7 +104,7 @@ function checkLength(input, min, max) {
         showSuccess(input);
     }
 }
-// Check email is valid
+// Check Date is valid
 function checkDate(input) {
     const regex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(0[1-9]|1[1-9]|2[1-9])$/;
     if (regex.test(input.value.trim())) {

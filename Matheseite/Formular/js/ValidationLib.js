@@ -77,6 +77,70 @@ function checkLength(id, input, min, max) {
     return result;
 }
 
+function checkPhone(id,input){
+    let result = {
+        isNotValid: false,
+        msg: showSuccess(id)
+    }
+    const re = /^\d{10}$/;
+    if (!re.test(input.trim())) {
+        result = {
+            isNotValid: true,
+            msg: showError(id, 'Number is not valid')
+        }
+    }
+    return result;
+
+}
+
+function checkDate(id,input){
+    let result = {
+        isNotValid: false,
+        msg: showSuccess(id)
+    }
+    const re = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(0[1-9]|1[1-9]|2[1-9])$/;
+    if (!re.test(input.trim())) {
+        result = {
+            isNotValid: true,
+            msg: showError(id, 'Date is not valid')
+        }
+    }
+    return result;
+
+}
+
+function checkFirstname(id,input){
+    let result = {
+        isNotValid: false,
+        msg: showSuccess(id)
+    }
+    const re = /^[a-z ,.'-]+$/i;
+    if (!re.test(input.trim())) {
+        result = {
+            isNotValid: true,
+            msg: showError(id, 'Firstname is not valid')
+        }
+    }
+    return result;
+
+}
+
+function checkLastname(id,input){
+    let result = {
+        isNotValid: false,
+        msg: showSuccess(id)
+    }
+    const re = /^[A-Za-z]+$/;
+    if (!re.test(input.trim())) {
+        result = {
+            isNotValid: true,
+            msg: showError(id, 'Lastname is not valid')
+        }
+    }
+    return result;
+
+}
+
 /**
  *  Export validation functions for further usage.
  *  function to export WITHOUT brackets!
@@ -84,5 +148,9 @@ function checkLength(id, input, min, max) {
 module.exports = {
     checkEmail,
     checkLength,
-    checkRequired
+    checkRequired,
+    checkPhone,
+    checkDate,
+    checkFirstname,
+    checkLastname
 }
