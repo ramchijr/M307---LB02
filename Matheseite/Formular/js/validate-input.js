@@ -7,9 +7,9 @@ const form = document.getElementById('form');
 const email = document.getElementById('email');
 const nachname = document.getElementById('nachname');
 const vorname = document.getElementById('vorname');
-const geburtsdatum = document.getElementById('geburtsdatum' );
 const telefonnummer = document.getElementById('telefonnummer' );
 const passwort = document.getElementById('passwort');
+const geburtsdatum = document.getElementById('geburtsdatum' );
 
 // Show input error message
 function showError(input, message) {
@@ -110,7 +110,7 @@ function checkDate(input) {
     if (regex.test(input.value.trim())) {
         showSuccess(input);
     } else {
-        showError(input, 'Us this format dd/mm/yy.');
+        showError(input, 'Use this format dd/mm/yy.');
     }
 }
 
@@ -127,9 +127,9 @@ function validateForm(){
         checkLength(passwort, 6, 25);
         checkFirstname(vorname, 3, 15);
         checkLastname(nachname, 3, 15);
-        checkDate(geburtsdatum);
         checkPhone(telefonnummer);
         checkEmail(email);
+        checkDate(geburtsdatum);
 }
 
 function validateInputs() {
