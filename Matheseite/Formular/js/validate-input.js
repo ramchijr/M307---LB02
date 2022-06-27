@@ -23,6 +23,7 @@ function showError(input, message) {
 function showSuccess(input) {
     const formControl = input.parentElement;
     formControl.className = 'form-control success';
+    console.log("success")
 }
 
 
@@ -56,10 +57,13 @@ function checkFirstname(input, min, max) {
 
 // Check last name
 function checkLastname(input, min, max) {
+    console.log("check last name")
     const regex = /^[A-Za-z]+$/;
     if (regex.test(input.value.trim()) && checkLength(input, min, max)) {
+        console.log("success in lastname")
         showSuccess(input);
     } else {
+        console.log("error in last name")
         showError(
             input,
             'Lastname must contain 3 to 15 letters'
@@ -133,9 +137,11 @@ function validateForm(){
 }
 
 function validateInputs() {
+    //validateForm();
+    /*
     if (!checkRequired([vorname, nachname, email, telefonnummer, passwort, geburtsdatum])) {
-        validateForm();
     }
+     */
 
 
 // Event listeners

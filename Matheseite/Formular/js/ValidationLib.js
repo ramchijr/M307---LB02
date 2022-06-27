@@ -47,7 +47,7 @@ function checkRequired(id, input) {
         //.. then it's not valid
         result = {
             isNotValid: true,
-            msg: showError(id, `${input.toString()} is required`)
+            msg: showError(id, `field is required`)
         }
     }
     //return validation result

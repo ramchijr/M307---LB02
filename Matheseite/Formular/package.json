@@ -2,9 +2,9 @@
   "name": "M307_MED20",
   "version": "1.0.0",
   "description": "ICT-Modul_307",
-  "main": "js/server/server.js",
+  "main": "js/server.js",
   "scripts": {
-    "registrationserver": "node js/server/server.js"
+    "registrationserver": "node js/server.js"
   },
   "keywords": [
     "Mediamatiker",

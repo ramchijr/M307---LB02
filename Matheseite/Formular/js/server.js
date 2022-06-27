@@ -10,7 +10,7 @@ let express = require("express");
 let bodyParser = require("body-parser");
 let app     = express();
 const { v4: uuidv4 } = require('uuid');
-const UserRepository = require('./UserRepository');
+const UserRepository = require('/UserRepository');
 const Validation = require('./ValidationService');
 
 
@@ -20,7 +20,7 @@ console.log(`Running at Port ${port}`);
 server.timeout = 1000 * 60 * 2; // 2 minutes
 
 //Warning: Korrekt setzen!!
-const staticPath = './js/server/data';
+const staticPath = './js/data';
 const registrationFile = staticPath+'registration.json';
 
 
@@ -54,7 +54,7 @@ app.post('/register', (req, res) => {
     const HTTP_STATUS_NO_ACCEPTABLE = 406;
     //Daten des Posts-Requests auslesen und zusätzlich eine User-id erzeugen
     let userObj = {
-        "id": uuidv4(),
+        "id": uuidv4(), //externes Modul
         "vorname": req.body.user.vorname,
         "nachname": req.body.user.nachname,
         "passwort": req.body.user.passwort,
@@ -80,6 +80,8 @@ app.post('/register', (req, res) => {
             .catch(error => {
                 console.error(error);
             });
-        res.status(201).send(`User ${userObj.username} inserted!`);
+        res.status(201).send(`User ${userObj.vorname} ${userObj.nachname} inserted!`);
+
+
     }
 });
